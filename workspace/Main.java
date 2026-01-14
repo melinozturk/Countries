@@ -1,3 +1,7 @@
+//Melin Ozturk
+//1/14/2026
+// This is the main class to run the Countries GUI program
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
