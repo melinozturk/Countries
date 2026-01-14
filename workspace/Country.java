@@ -8,7 +8,7 @@ public class Country
 
   private String name;
   private String capital;
-  private Sting language;
+  private String language;
   private String imageFile; 
 
   // add constructors

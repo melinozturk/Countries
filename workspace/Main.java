@@ -16,29 +16,48 @@ public class Main
   // index of current shown country
   private int index = 0;
 
+
   // GUI elements
   private JFrame jFrame = new JFrame("Countries");
   private ImageIcon img;
   private JLabel imageLabel;
   private JLabel outputLabel;
+
   
   public static void main(String[] args) {
     // Create the GUI
     Main gui = new Main();
     gui.loadCountries();
     gui.showCountry();
+
   }
 
   /* loadCountries() reads in the data from the countries-data.csv file and fills in the countryArray with data. You need to add the loop that reads in the country data into the array. */
   public void loadCountries() 
   {
     // Open the data file. Please note that the file structure we're working with requires the full file path as shown here unlike what you saw in runestone where the file name was sufficient.
+     try {
     File file = new File("/workspaces/Countries/workspace/countries-data.csv");
-    
-    //create a scanner and a loop to read from the file until you've read everything.
+      Scanner scan = new Scanner(file);
+     } catch (IOException e) {
+      System.out.println("File couldn't be opened");
+     }
+   
+ 
+      //create a scanner and a loop to read from the file until you've read everything.
+     
+      
+      
     // inside the loop you'll need to read in a line from the file and use "split" to break up the data into destinct parts.
+for (int i = 0; i < 10; i++){
+    
+      String line = scan.nextLine();
+      String[] parts = line.split(",");
     // create a new Country using your constructor with 4 arguments (each of the arguments is a different part of the line you've read in)
+    Country country = new Country(parts[0], parts[1], parts[2], parts[3]);
     // inside the loop, set countryArray[i] to the created Country object
+    countryArray[i] = country;
+    }
     //after running this method your array should contain all 10 countries from inside the countries-data file.
      
     
