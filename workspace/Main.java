@@ -22,6 +22,7 @@ public class Main
   private ImageIcon img;
   private JLabel imageLabel;
   private JLabel outputLabel;
+  private JTextArea userInput;
 
   
   public static void main(String[] args) {
@@ -93,7 +94,7 @@ for (int i = 0; i < 10; i++){
     if (index > 9){
       index = 0;
     }
-    outputLabel.setText("");
+    outputLabel.setText("What's this country?");
     showCountry();
 
 
@@ -116,12 +117,9 @@ for (int i = 0; i < 10; i++){
   {
     outputLabel.setText("");
     Country country = countryArray[index];
-    System.out.println("What country is this?");
-    System.out.println("What's this country's capital?");
+    // System.out.println("What country is this?");
+    // System.out.println("What's this country's capital?");
     // Create a dialog box to get user input
-    String userInput = JOptionPane.showInputDialog("Enter your answer:");
-    
-
     //Scanner scan = new Scanner(System.in); 
     String userAnswer = userInput.getText();
   
@@ -139,6 +137,7 @@ public Main() {
         JButton reviewButton = new JButton("Review");
         JButton quizButton = new JButton("Quiz");
         JButton newButton = new JButton("Next");
+        userInput = new JTextArea(1, 20);
         jFrame.add(reviewButton);
         jFrame.add(quizButton);
         jFrame.add(newButton);
@@ -151,6 +150,7 @@ public Main() {
         outputLabel = new JLabel();
         jFrame.add(imageLabel);
         jFrame.add(outputLabel);
+        jFrame.add(userInput);
         jFrame.setVisible(true);
         // add event listener for button click
         reviewButton.addActionListener(new ActionListener() {
