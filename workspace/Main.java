@@ -45,6 +45,17 @@ public class Main
    
  
       //create a scanner and a loop to read from the file until you've read everything.
+    Scanner scan = null;
+    try {
+      File file = new File("/workspaces/Countries/workspace/countries-data.csv");
+      scan = new Scanner(file);
+    } catch (IOException e) {
+      System.out.println("File couldn't be opened");
+
+    }
+    
+
+
      
       
       
@@ -59,7 +70,6 @@ for (int i = 0; i < 10; i++){
     countryArray[i] = country;
     }
     //after running this method your array should contain all 10 countries from inside the countries-data file.
-     
     
   }
 
@@ -73,17 +83,30 @@ for (int i = 0; i < 10; i++){
     // Use the following code to create an new Image Icon and put it into the GUI
     img = new ImageIcon("/workspaces/Countries/workspace/"+imagefile);
     imageLabel.setIcon(img);
+
   }
   
   /* nextButton should increment index. If the index is greater than 9, reset it back to 0. Clear the outputLabel to empty string using setText, and call showCountry();*/
   public void nextButtonClick()
   {
+    index++;
+    if (index > 9){
+      index = 0;
+    }
+    outputLabel.setText("");
+    showCountry();
+
+
     
   }
   
   /* reviewButton should get the country at index from the countryArray, call its toString() method and save the result, print it out with System.out.println and as an argument to outputLabel.setText( text to print out ); */
   public void reviewButtonClick()
   {
+    Country country = countryArray[index];
+    String info = country.toString();
+    System.out.println(info);
+    outputLabel.setText(info);
      
   }
 
@@ -91,13 +114,19 @@ for (int i = 0; i < 10; i++){
   */
   public void quizButtonClick()
   {
-    Scanner scan = new Scanner(System.in); 
+    outputLabel.setText("");
+    Country country = countryArray[index];
+    System.out.println("What country is this?");
+    System.out.println("What's this country's capital?");
+    // Create a dialog box to get user input
+    String userInput = JOptionPane.showInputDialog("Enter your answer:");
     
-    
+
+    //Scanner scan = new Scanner(System.in); 
+    String userAnswer = userInput.getText();
+  
     
   }
-
-
 
 
   /* You are not required to change anythign below here. You do so at your own risk! */
