@@ -26,14 +26,14 @@ public class Main
   private JLabel imageLabel;
   private JLabel outputLabel;
   private JTextArea userInput;
-  private JButton submitButton;
-  private JButton nextButton; 
+  
+  
   
   public static void main(String[] args) {
     // Create the GUI
     Main gui = new Main();
     gui.loadCountries();
-    gui.createGUI(); 
+    
     gui.showCountry();
 
   }
@@ -119,9 +119,11 @@ for (int i = 0; i < 10; i++){
   {
     
     Country country = countryArray[index];
+     outputLabel.setText("");
     System.out.println("What country is this?");
     System.out.println("What's this country's capital?");
     // Create a dialog box to get user input
+    
     //Scanner scan = new Scanner(System.in); 
     String userAnswer = userInput.getText();
 
@@ -130,7 +132,7 @@ for (int i = 0; i < 10; i++){
     } else {
       outputLabel.setText("Incorrect! The country is " + country.getName() + " and its capital is " + country.getCapital() + ".");
     }
-    outputLabel.setText("Correct!");
+   userInput.setText("");
 
     
   }
