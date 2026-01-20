@@ -15,6 +15,7 @@ public class Main
 
   private Country[] countryArray = new Country[10];
   
+  
   // index of current shown country
   private int index = 0;
 
@@ -118,13 +119,19 @@ for (int i = 0; i < 10; i++){
   {
     
     Country country = countryArray[index];
-    // System.out.println("What country is this?");
-    // System.out.println("What's this country's capital?");
+    System.out.println("What country is this?");
+    System.out.println("What's this country's capital?");
     // Create a dialog box to get user input
     //Scanner scan = new Scanner(System.in); 
     String userAnswer = userInput.getText();
-    
+
+    if (userAnswer.equalsIgnoreCase(country.getName()) || userAnswer.equalsIgnoreCase(country.getCapital())) {
+      outputLabel.setText("Correct!");
+    } else {
+      outputLabel.setText("Incorrect! The country is " + country.getName() + " and its capital is " + country.getCapital() + ".");
+    }
     outputLabel.setText("Correct!");
+
     
   }
 
