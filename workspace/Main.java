@@ -12,7 +12,9 @@ public class Main
 {
 
   // array of 10 Country objects
-  private Country[] countryArray = new Country[10];  
+
+  private Country[] countryArray = new Country[10];
+  
   // index of current shown country
   private int index = 0;
 
@@ -23,12 +25,14 @@ public class Main
   private JLabel imageLabel;
   private JLabel outputLabel;
   private JTextArea userInput;
-
+  private JButton submitButton;
+  private JButton nextButton; 
   
   public static void main(String[] args) {
     // Create the GUI
     Main gui = new Main();
     gui.loadCountries();
+    gui.createGUI(); 
     gui.showCountry();
 
   }
@@ -54,11 +58,6 @@ public class Main
       System.out.println("File couldn't be opened");
 
     }
-    
-
-
-     
-      
       
     // inside the loop you'll need to read in a line from the file and use "split" to break up the data into destinct parts.
 for (int i = 0; i < 10; i++){
@@ -78,12 +77,14 @@ for (int i = 0; i < 10; i++){
   */
   public void showCountry() {
     // Get the country at index from countryArray
+    Country country = countryArray[index];
     
     // Use its get method to get the its image file name and save it into imagefile variable below instead of worldmap.jpg.
-    String imagefile = "worldmap.jpg";
+    String imagefile = country.getImageFile();
     // Use the following code to create an new Image Icon and put it into the GUI
     img = new ImageIcon("/workspaces/Countries/workspace/"+imagefile);
     imageLabel.setIcon(img);
+  
 
   }
   
@@ -115,14 +116,15 @@ for (int i = 0; i < 10; i++){
   */
   public void quizButtonClick()
   {
-    outputLabel.setText("");
+    
     Country country = countryArray[index];
     // System.out.println("What country is this?");
     // System.out.println("What's this country's capital?");
     // Create a dialog box to get user input
     //Scanner scan = new Scanner(System.in); 
     String userAnswer = userInput.getText();
-  
+    
+    outputLabel.setText("Correct!");
     
   }
 
